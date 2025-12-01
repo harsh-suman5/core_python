@@ -1,0 +1,47 @@
+# ---------------- Packaging / Config ----------------
+pyinstaller        # Create standalone .exe from Python scripts       
+cx_Freeze            # Alternative tool for .exe packaging
+python-dotenv       
+loguru               # Advanced logging system (debugging, error tracking)
+
+# ---------------- GUI / Desktop App ----------------
+PySide6              # Modern GUI framework (recommended for polished UI)
+PyQt5                # Alternative GUI framework
+kivy                 # Cross-platform GUI (touch/mobile friendly)
+
+# ---------------- Database / ORM ----------------
+SQLAlchemy           # ORM for SQLite/PostgreSQL (clean DB queries)
+alembic              # Database migrations 
+
+# ---------------- Data Handling / ML Basics ----------------
+numpy                # Numerical computing (arrays, math operations)
+pandas               # DataFrames, CSV/Excel handling
+scikit-learn         # Core ML algorithms (classification, clustering, regression)
+joblib               # Model save/load (serialization)
+imbalanced-learn     # Handle imbalanced datasets 
+
+# ---------------- NLP (Text Processing) ----------------
+nltk                 # Tokenization, stopwords, text preprocessing
+spacy                # Named Entity Recognition (NER), advanced NLP
+transformers         # HuggingFace models (BERT, GPT, multilingual FIR analysis)
+sentencepiece        # Tokenizer support for transformer models
+textblob             # Simple sentiment analysis, text classification
+
+# ---------------- Computer Vision ----------------
+opencv-python        # Image/video processing (CCTV, evidence analysis)
+
+torch                # PyTorch deep learning framework
+torchvision          # Vision models + datasets (image classification, detection)
+tensorflow           # Alternative deep learning framework
+pillow               # Image handling (open/save/resize)
+
+# ---------------- Visualization / Analytics ----------------
+matplotlib           # Basic plotting (line, bar, scatter)
+seaborn              # Statistical visualization (crime trends, heatmaps)
+plotly               # Interactive charts/dashboards
+folium               # Map visualization (crime hotspots)
+geopandas            # Geospatial analysis (district-wise crime mapping)
+
+# ---------------- Security / Encryption ----------------
+cryptography         # Encryption/decryption (secure evidence storage)
+bcrypt               # Password hashing (officer login system)
