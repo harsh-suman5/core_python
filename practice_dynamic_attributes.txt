@@ -1,0 +1,244 @@
+================================================================================
+                    PRACTICE GUIDE: DYNAMIC ATTRIBUTES IN PYTHON
+                          Basic | Intermediate | Advanced
+================================================================================
+
+CONCEPT: Adding attributes dynamically to classes and objects using setattr(), 
+delattr(), getattr(), and hasattr() functions.
+
+================================================================================
+                              BASIC LEVEL QUESTIONS
+================================================================================
+
+1. Using setattr() - Simple Instance Attribute
+   Question: Create a class 'Person' and add a 'name' attribute dynamically 
+   using setattr() to an instance. Print the attribute.
+   Expected: obj.name should return the value you set.
+
+2. Using setattr() - Simple Class Attribute
+   Question: Create an empty class 'Car'. Add a class attribute 'brand' 
+   dynamically using setattr() at the class level. Verify it's accessible 
+   from multiple instances.
+
+3. Using getattr() - Basic Retrieval
+   Question: Define a class 'Student'. Set 'roll_number' dynamically and 
+   retrieve it using getattr() with a default value.
+   Expected: If attribute exists, return value; otherwise return default.
+
+4. Using hasattr() - Check Existence
+   Question: Create a class 'Product'. Add 'price' attribute dynamically. 
+   Use hasattr() to check if the attribute exists before accessing it.
+
+5. Using delattr() - Delete Attribute
+   Question: Create an object with a dynamic attribute. Delete it using 
+   delattr() and verify it no longer exists using hasattr().
+
+6. Adding Multiple Attributes
+   Question: Create a class 'Employee' (like in your project0.py). 
+   Dynamically add multiple attributes (name, salary, department) using 
+   setattr() in a loop.
+
+7. Type Introspection with __dict__
+   Question: Create a class and add attributes dynamically. Print the 
+   object's __dict__ to see all dynamic attributes.
+
+8. Dynamic Method Addition (Simple)
+   Question: Create a function outside a class. Add it as a method to a 
+   class dynamically using setattr().
+
+================================================================================
+                           INTERMEDIATE LEVEL QUESTIONS
+================================================================================
+
+9. Dynamic Attribute with Property Decorator
+   Question: Create a class with a dynamic attribute. Later, convert it to 
+   a property with getter and setter using setattr().
+
+10. Adding Attributes Dynamically with Class Decorator
+    Question: Write a class decorator that automatically adds common 
+    attributes (created_at, updated_at) to any class it decorates.
+
+11. Conditional Dynamic Attributes
+    Question: Create a class 'Config'. Based on environment variables 
+    (using .env file), dynamically add different attributes using setattr().
+
+12. Dynamic Instance Attributes from Dictionary
+    Question: Given a dictionary of config values, create a class instance 
+    and use setattr() to add all dictionary items as attributes.
+
+13. Preventing Attribute Addition (Slots)
+    Question: Compare two classes - one with __slots__ and one without. 
+    Try to add attributes dynamically to both. Observe the differences.
+
+14. Dynamic Attributes with Inheritance
+    Question: Create a base 'Animal' class. Create a subclass 'Dog'. 
+    Add attributes dynamically to the subclass. Verify they don't affect 
+    the base class.
+
+15. Using __getattr__ and __setattr__
+    Question: Override __setattr__ to track all dynamic attributes added 
+    to a class. Print a log of what attributes were added and when.
+
+16. Dynamic Class Methods (Classmethod)
+    Question: Create a class and dynamically add a @classmethod using 
+    setattr(). Ensure it works correctly (reference your dynamic_class_attr.py).
+
+17. Dynamic Attributes with Validation
+    Question: Create a class that validates data before setting attributes 
+    dynamically (e.g., age must be > 0).
+
+18. Namespace Management
+    Question: Create multiple instances. Add different dynamic attributes 
+    to each. Verify they don't interfere with each other's namespaces.
+
+================================================================================
+                            ADVANCED LEVEL QUESTIONS
+================================================================================
+
+19. Metaclass with Dynamic Attributes
+    Question: Create a custom metaclass that automatically adds attributes 
+    to all classes it creates. Add a 'registry' attribute tracking all 
+    instances.
+
+20. Dynamic Attribute Descriptors
+    Question: Create a descriptor class. Dynamically add it as an attribute 
+    using setattr(). Implement __get__, __set__, __delete__ methods.
+
+21. Factory Pattern with Dynamic Attributes
+    Question: Create a factory function that generates classes dynamically 
+    and populates them with attributes based on input parameters.
+
+22. Dynamic ORM-like Attribute System
+    Question: Create a simple ORM-like class that can dynamically map 
+    database columns to class attributes using setattr(). Include methods 
+    like save() and load().
+
+23. Attribute Change Tracking
+    Question: Create a class that tracks all attribute changes using 
+    __setattr__. Log what changed, old value, new value, and timestamp.
+
+24. Dynamic Computed Properties
+    Question: Create a class where you can dynamically add computed 
+    properties (like in Excel formulas) that recalculate based on other 
+    attributes.
+
+25. Thread-Safe Dynamic Attributes
+    Question: Create a thread-safe class where multiple threads can safely 
+    add dynamic attributes using locks/semaphores.
+
+26. Dynamic Attribute Serialization
+    Question: Create a class that supports dynamic attributes. Implement 
+    methods to serialize (to JSON) and deserialize (from JSON) these 
+    attributes.
+
+27. Proxy Pattern with Dynamic Attributes
+    Question: Create a proxy class that wraps another object and 
+    dynamically forwards attribute access to the wrapped object.
+
+28. Dynamic Configuration System
+    Question: Build a configuration system that:
+    - Reads from a config file
+    - Dynamically creates attributes for each config value
+    - Supports environment variable overrides
+    - Validates data types
+    - Allows attribute access via dot notation (obj.key) or dictionary style
+
+29. Plugin System with Dynamic Attributes
+    Question: Create a plugin system where:
+    - Plugins are loaded dynamically
+    - Each plugin adds its own attributes to a main class
+    - Plugins can be loaded/unloaded at runtime
+    - Main app can access plugin attributes dynamically
+
+30. Dynamic Mock/Stub Generation
+    Question: Create a MockObject class that allows:
+    - Setting any attribute dynamically
+    - Tracking what attributes were accessed
+    - Recording method calls
+    - Useful for testing
+
+================================================================================
+                            IMPLEMENTATION TIPS
+================================================================================
+
+For Basic Level:
+- Focus on understanding setattr(), getattr(), hasattr(), delattr()
+- Use simple classes like Employee (from your project0.py)
+- Practice with both instance and class attributes
+
+For Intermediate Level:
+- Combine dynamic attributes with other Python features
+- Use your existing files as reference (build_in_class.py, project0.py, project1.py)
+- Understand __dict__ and metaclasses
+
+For Advanced Level:
+- Think about real-world applications (configs, ORM, plugins)
+- Consider performance and thread-safety
+- Implement proper error handling
+- Use design patterns
+
+================================================================================
+                          REFERENCE FUNCTIONS
+================================================================================
+
+1. setattr(obj, name, value)
+   - Adds or updates an attribute dynamically
+   
+2. getattr(obj, name, default=None)
+   - Retrieves attribute value, returns default if not found
+   
+3. hasattr(obj, name)
+   - Checks if attribute exists (returns True/False)
+   
+4. delattr(obj, name)
+   - Removes an attribute
+   
+5. __dict__
+   - Dictionary containing object's attributes
+   
+6. vars(obj)
+   - Returns __dict__ of an object
+   
+7. dir(obj)
+   - Lists all attributes (including inherited ones)
+
+================================================================================
+                            QUICK PRACTICE TEMPLATE
+================================================================================
+
+# Template to get you started:
+
+class DynamicObject:
+    """Template for practicing dynamic attributes"""
+    pass
+
+# BASIC: Add attribute
+setattr(DynamicObject, 'attribute1', 'value1')
+
+# INTERMEDIATE: Add method
+def my_method(self):
+    return "Hello"
+
+setattr(DynamicObject, 'my_method', my_method)
+
+# ADVANCED: Add property
+def make_property():
+    def get_value(self):
+        return self._value
+    def set_value(self, val):
+        self._value = val
+    return property(get_value, set_value)
+
+setattr(DynamicObject, 'dynamic_prop', make_property())
+
+================================================================================
+                        GOOD LUCK WITH YOUR PRACTICE!
+================================================================================
+
+Start with Basic Level (Questions 1-8)
+→ Move to Intermediate Level (Questions 9-18) after mastering basics
+→ Challenge yourself with Advanced Level (Questions 19-30) for deep understanding
+
+Remember: The best way to learn is by DOING. Write code for each question!
+
+================================================================================

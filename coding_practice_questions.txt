@@ -1,0 +1,525 @@
+================================================================================
+         CODING PRACTICE QUESTIONS - Based on Your Python Projects
+                    Basic | Intermediate | Advanced Level
+================================================================================
+
+This file contains practical coding questions based on concepts from your
+existing files:
+- build_in_class.py (Data Types, Type Checking)
+- project0.py (Classes, Objects, Class Attributes)
+- project1.py (Class Introspection, Magic Methods)
+- dynamic_class_attr.py (Dynamic Attributes with setattr)
+
+================================================================================
+                              BASIC LEVEL QUESTIONS
+================================================================================
+
+QUESTION 1: Data Type Exploration (Based on build_in_class.py)
+===============================================================
+Create a program that:
+1. Defines variables of different types: int, float, complex, dict, list, tuple
+2. Uses type() function to display each type
+3. For complex numbers, display real and imaginary parts
+4. For collections, display their length
+
+Example Input: num = 5+3j
+Example Output: 
+    Type: <class 'complex'>
+    Real part: 5.0
+    Imaginary part: 3.0
+
+---
+
+QUESTION 2: Simple Employee Class (Based on project0.py)
+=========================================================
+Create an Employee class with:
+1. Class attribute: empCount (tracks total employees)
+2. Instance attributes: name, salary
+3. Method displayEmployee(): prints name and salary
+4. Create 3 employee objects and display their info
+5. Print total employee count
+
+Expected Output:
+    Employee 1: name: John, salary: 50000
+    Employee 2: name: Jane, salary: 60000
+    Employee 3: name: Bob, salary: 45000
+    Total employees: 3
+
+---
+
+QUESTION 3: Dynamic Attribute Addition (Based on dynamic_class_attr.py)
+========================================================================
+Create a Person class and:
+1. Create an instance without any attributes
+2. Use setattr() to add 'name', 'age', 'city' attributes
+3. Use getattr() to retrieve each attribute with default values
+4. Print all attributes using __dict__
+
+---
+
+QUESTION 4: Attribute Checking with hasattr() and delattr()
+============================================================
+Create a Student class and:
+1. Add attributes dynamically using setattr()
+2. Use hasattr() to check if attribute exists
+3. Delete an attribute using delattr()
+4. Verify deletion using hasattr()
+
+Example:
+    setattr(student1, 'marks', 95)
+    print(hasattr(student1, 'marks'))  # True
+    delattr(student1, 'marks')
+    print(hasattr(student1, 'marks'))  # False
+
+---
+
+QUESTION 5: Class vs Instance Attributes
+=========================================
+Create a Vehicle class that demonstrates:
+1. Class attribute: wheels = 4 (shared by all instances)
+2. Instance attributes: brand, color (unique per instance)
+3. Modify class attribute and verify it affects all instances
+4. Modify instance attribute and verify it doesn't affect other instances
+5. Use __dict__ to show the difference
+
+---
+
+QUESTION 6: Magic Methods - Class Introspection (Based on project1.py)
+=======================================================================
+Create a Product class and print its magic methods:
+1. __doc__ (documentation)
+2. __name__ (class name)
+3. __module__ (module name)
+4. __bases__ (parent classes)
+5. __dict__ (all attributes)
+
+---
+
+QUESTION 7: Multiple Type Checking
+===================================
+Create a function that accepts any value and:
+1. Checks if it's a number (int or float)
+2. Checks if it's a string
+3. Checks if it's a collection (list, tuple, dict)
+4. Checks if it's a function
+5. Print the appropriate message for each type
+
+---
+
+QUESTION 8: Adding Methods Dynamically
+=======================================
+Create an empty class Calculator and:
+1. Define functions add(), subtract(), multiply() outside the class
+2. Use setattr() to add these functions as methods to the class
+3. Create an instance and call the methods
+4. Verify they work correctly
+
+---
+
+================================================================================
+                           INTERMEDIATE LEVEL QUESTIONS
+================================================================================
+
+QUESTION 9: Company Management System
+======================================
+Create a Company class with:
+1. Class attributes: company_name, total_employees
+2. Employee list (instance attribute)
+3. Methods: add_employee(), remove_employee(), list_all_employees()
+4. Use dynamic attributes for each employee
+5. Track total employees using class attribute
+6. Display company info with __doc__
+
+Implement:
+    company = Company("TechCorp")
+    company.add_employee("Alice", 75000)
+    company.add_employee("Bob", 65000)
+    company.list_all_employees()
+    print(f"Total: {Company.total_employees}")
+
+---
+
+QUESTION 10: Attribute Validation with setattr Override
+========================================================
+Create a Person class that overrides __setattr__ to:
+1. Validate age is > 0 and < 150
+2. Validate name is not empty
+3. Validate salary is positive
+4. Print a message when each attribute is set
+5. Raise ValueError for invalid data
+
+Example:
+    person = Person()
+    person.age = -5  # Should raise error
+    person.age = 25  # Should succeed and print message
+    person.name = "John"  # Should succeed
+
+---
+
+QUESTION 11: Dynamic Configuration System (Based on .env concept)
+==================================================================
+Create a Config class that:
+1. Reads config values from a dictionary
+2. Uses setattr() to create attributes for each config value
+3. Provides getattr() with default values
+4. Implements a method to display all configurations
+5. Supports updating configurations dynamically
+
+Example:
+    config_data = {"db_host": "localhost", "db_port": 5432, "debug": True}
+    config = Config(config_data)
+    print(config.db_host)  # localhost
+    print(getattr(config, "db_user", "root"))  # root (default)
+
+---
+
+QUESTION 12: Class with Computed Attributes
+=============================================
+Create a Rectangle class with:
+1. Instance attributes: length, width
+2. Computed properties: area and perimeter (calculated on access)
+3. Dynamic attributes that change when length/width change
+4. Use @property decorator (or simulate with __getattr__)
+5. Display all attributes and computed values
+
+---
+
+QUESTION 13: Inheritance with Dynamic Attributes
+=================================================
+Create:
+1. Base class Animal with: name, species
+2. Subclass Dog with: breed, color
+3. Dynamically add attributes to both classes
+4. Verify subclass attributes don't affect base class
+5. Display inheritance hierarchy with __bases__
+
+Example:
+    dog = Dog("Buddy", "Golden Retriever", "Golden")
+    setattr(dog, 'tricks', 5)
+    print(dog.__dict__)
+    print(Dog.__bases__)  # (<class 'Animal'>,)
+
+---
+
+QUESTION 14: Tracking Attribute Changes
+========================================
+Create an AttributeTracker class that:
+1. Overrides __setattr__ to track all changes
+2. Records old value, new value, timestamp
+3. Provides a history() method to show all changes
+4. Works with any attribute name
+5. Display complete change log
+
+---
+
+QUESTION 15: Multiple Instances with Isolated Attributes
+=========================================================
+Create a Configuration class and:
+1. Create 3 instances with different attributes
+2. Use setattr() to add different attributes to each
+3. Verify attributes are isolated per instance
+4. Demonstrate that __dict__ is different for each instance
+5. Modify one instance and verify others remain unchanged
+
+---
+
+QUESTION 16: Class Factory with Dynamic Attributes
+===================================================
+Create a function create_model() that:
+1. Takes a dictionary of field names and types
+2. Dynamically creates a class with those attributes
+3. Returns instances that validate input types
+4. Supports setting values dynamically
+
+Example:
+    User = create_model("User", {"name": str, "age": int})
+    user = User(name="Alice", age=30)
+    print(user.name)
+
+---
+
+QUESTION 17: String Representation of Dynamic Objects
+======================================================
+Create a class DynamicObject that:
+1. Supports dynamic attribute addition
+2. Implements __str__ to show all dynamic attributes
+3. Implements __repr__ for debugging
+4. Shows attribute types along with values
+5. Handles empty objects gracefully
+
+Example output:
+    DynamicObject(name='John', age=30, email='john@example.com')
+
+---
+
+QUESTION 18: Namespace Management - Avoiding Conflicts
+=======================================================
+Create multiple classes and:
+1. Add attributes with same names to different classes
+2. Show they don't interfere with each other
+3. Use __dict__ to compare namespaces
+4. Demonstrate class vs instance namespace separation
+5. Show how to safely access attributes using getattr()
+
+---
+
+================================================================================
+                            ADVANCED LEVEL QUESTIONS
+================================================================================
+
+QUESTION 19: Custom Descriptor with Dynamic Attributes
+=======================================================
+Create a:
+1. Descriptor class Temperature that converts between Celsius and Fahrenheit
+2. Dynamically add it to a Weather class using setattr()
+3. Implement __get__ and __set__ methods
+4. Store value privately as _celsius
+5. Support accessing as both celsius and fahrenheit
+
+Example:
+    weather = Weather()
+    weather.temp = 25  # 25 Celsius
+    print(weather.temp_fahrenheit)  # 77.0
+
+---
+
+QUESTION 20: Metaclass with Dynamic Attribute Registry
+=======================================================
+Create a Metaclass that:
+1. Tracks all instances of classes using the metaclass
+2. Automatically registers instances in a registry
+3. Provides a class method to get all instances
+4. Dynamically adds a _registry attribute to each class
+5. Demonstrates inheritance with metaclass
+
+Example:
+    class User(metaclass=InstanceTracker):
+        pass
+    u1 = User()
+    u2 = User()
+    print(User.get_instances())  # [u1, u2]
+
+---
+
+QUESTION 21: ORM-like Attribute System
+========================================
+Create a SimpleORM class that:
+1. Maps attributes to "database columns"
+2. Supports save() method to simulate database storage
+3. Supports load() method to retrieve from storage
+4. Validates data types before saving
+5. Tracks which attributes have changed
+6. Example: User model with name, email, age
+
+---
+
+QUESTION 22: Proxy Pattern with Dynamic Forwarding
+===================================================
+Create a Proxy class that:
+1. Wraps another object
+2. Dynamically forwards attribute access to wrapped object
+3. Logs all attribute accesses
+4. Can intercept and modify values
+5. Example: Proxy(User("Alice")).name
+
+---
+
+QUESTION 23: Plugin System with Dynamic Loading
+================================================
+Create a PluginSystem class that:
+1. Dynamically loads plugin classes from dictionaries
+2. Each plugin adds methods to the main system
+3. Plugins can be loaded/unloaded at runtime
+4. Example plugins: Logger, FileHandler, Analyzer
+5. Demonstrate multiple plugins working together
+
+---
+
+QUESTION 24: Serialization of Dynamic Objects
+==============================================
+Create a DynamicObject class that:
+1. Supports adding attributes dynamically
+2. Implements to_json() to serialize all attributes
+3. Implements from_json() class method to deserialize
+4. Handles nested objects
+5. Supports type conversion during serialization
+
+Example:
+    obj = DynamicObject()
+    obj.name = "John"
+    obj.age = 30
+    json_str = obj.to_json()
+    obj2 = DynamicObject.from_json(json_str)
+
+---
+
+QUESTION 25: Thread-Safe Dynamic Attributes
+=============================================
+Create a ThreadSafeObject class that:
+1. Uses locks for attribute access
+2. Safely adds/removes attributes from multiple threads
+3. Prevents race conditions
+4. Provides atomic operations (get, set, delete)
+5. Demonstrates thread safety with concurrent threads
+
+---
+
+QUESTION 26: Validation Chain with Dynamic Attributes
+======================================================
+Create a Validator class that:
+1. Chains validation rules dynamically
+2. Supports validators like: MinLength, MaxLength, Range, Pattern
+3. Applies validators using __setattr__
+4. Provides detailed error messages
+5. Example: Email field with multiple validators
+
+---
+
+QUESTION 27: Configuration with Environment Variables
+======================================================
+Create a ConfigManager that:
+1. Reads configuration from .env file
+2. Dynamically creates attributes using setattr()
+3. Supports environment variable overrides
+4. Validates configuration values
+5. Provides type conversion (str to int, bool, etc.)
+
+---
+
+QUESTION 28: Advanced Attribute Introspection
+==============================================
+Create an Inspector class that:
+1. Analyzes any object's attributes deeply
+2. Separates class attributes from instance attributes
+3. Shows inherited vs own attributes
+4. Displays attributes hierarchy
+5. Generates a complete attribute report with types and values
+
+---
+
+QUESTION 29: State Machine with Dynamic Attributes
+===================================================
+Create a StateMachine class that:
+1. Dynamically transitions between states
+2. Each state has different allowed attributes
+3. Validates attribute access based on current state
+4. Logs state transitions
+5. Example: Order processing (Pending -> Processing -> Shipped -> Delivered)
+
+---
+
+QUESTION 30: Complete Employee Management System
+=================================================
+Create a complete Employee Management System with:
+
+Classes needed:
+1. Employee: name, salary, department, skills (dynamic)
+2. Department: name, budget, employees list
+3. Company: name, departments, employee registry
+
+Features:
+1. Dynamic skill addition to employees
+2. Salary validation with __setattr__
+3. Class method to count employees
+4. Department-wise statistics
+5. Serialization to JSON
+6. Search employees by criteria
+7. Generate reports
+
+Example usage:
+    company = Company("TechCorp")
+    dept = Department("Engineering", 100000)
+    emp = Employee("Alice", 75000, "Engineering")
+    setattr(emp, 'python_skill', 9)
+    setattr(emp, 'java_skill', 7)
+    
+    dept.add_employee(emp)
+    company.add_department(dept)
+    company.generate_report()
+
+---
+
+================================================================================
+                          IMPLEMENTATION GUIDELINES
+================================================================================
+
+BASIC LEVEL:
+✓ Focus on one concept per question
+✓ Use simple data structures
+✓ Test with print statements
+✓ Examples: type(), setattr(), getattr(), hasattr(), delattr()
+
+INTERMEDIATE LEVEL:
+✓ Combine multiple concepts
+✓ Use classes and inheritance
+✓ Implement custom methods
+✓ Handle edge cases
+✓ Examples: validation, tracking, dynamic creation
+
+ADVANCED LEVEL:
+✓ Use metaclasses, descriptors, and design patterns
+✓ Thread-safe implementations
+✓ Complex data flow
+✓ Real-world scenarios
+✓ Examples: plugins, ORM, serialization, state machines
+
+================================================================================
+                          TESTING YOUR SOLUTIONS
+================================================================================
+
+For each question, test:
+1. Basic functionality (happy path)
+2. Edge cases (empty, null, invalid)
+3. Type checking (correct and incorrect types)
+4. State transitions (before and after operations)
+5. Error handling (try/except blocks)
+
+Example test template:
+    def test_question_1():
+        # Setup
+        # Execute
+        # Assert
+        # Cleanup
+
+================================================================================
+                        RESOURCES FROM YOUR FILES
+================================================================================
+
+build_in_class.py:
+    - type() function usage
+    - Complex number attributes (.real, .imag)
+    - Different data types demonstration
+
+project0.py:
+    - Class definition with __init__
+    - Class attributes (empCount)
+    - Instance attributes (name, salary)
+    - Instance methods (displayEmployee, displayCount)
+    - Dynamic attribute assignment (emp1.age = 23)
+    - Dynamic attribute deletion (del emp1.age)
+
+project1.py:
+    - Magic methods (__doc__, __name__, __module__, __bases__, __dict__)
+    - Class introspection
+
+dynamic_class_attr.py:
+    - setattr() usage
+    - @classmethod decorator
+    - Dynamic method addition
+
+================================================================================
+                          GOOD LUCK!
+================================================================================
+
+Tips:
+1. Start with BASIC questions to build foundation
+2. Move to INTERMEDIATE after completing 3-4 basic questions
+3. Attempt ADVANCED after comfortable with intermediate
+4. Refer to your existing files for examples
+5. Test frequently and debug systematically
+6. Write comments explaining your logic
+7. Use meaningful variable names
+
+Remember: Practice makes perfect! Each question builds your understanding.
+
+================================================================================
