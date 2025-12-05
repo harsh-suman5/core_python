@@ -7,4 +7,5 @@ class harsh(ABC):
     def harsh(self):
         print("concrete method started learning by harsh")
 harsh.body(self= harsh)
+harsh.harsh(self=harsh)
 
